@@ -1,0 +1,22 @@
+{
+  "mobiles": [
+    {
+      "id": "01",
+      "model": "Galaxy S24 Ultra",
+      "imageURL": "https://images.samsung.com/is/image/samsung/assets/bd/2404/gnb/GNB_E3_168x136_mo.png?$168_136_PNG$",
+      "price": 301,
+      "subTitle": "aaaa",
+      "releaseYear": 2024
+    }
+  ],
+  "home-appliances": [
+    {
+      "id": "21",
+      "model": "Front Loading Washing machine- 13 KG WW13BB944DGBFQ",
+      "imageURL": "https://images.samsung.com/is/image/samsung/p6pim/bd/ww13bb944dgbfq/gallery/bd-ww9400b-ww13bb944dgbfq-541802465?$2052_1641_PNG$",
+      "price": 301,
+      "subTitle": "aaaa",
+      "releaseYear": 2024
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Logo from "../components/shared/Logo";
 
 const Navbar = () => {
   const navList = [
@@ -61,7 +62,7 @@ const Navbar = () => {
             })}
           </ul>
         </div>
-        <a className="text-xl uppercase -tracking-wider font-bold">samsung</a>
+        <Logo />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
