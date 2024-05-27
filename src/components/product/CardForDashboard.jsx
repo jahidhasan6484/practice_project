@@ -7,8 +7,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 // eslint-disable-next-line react/prop-types
 const CardForDashboard = ({ data, deleteItem }) => {
-  const { id, model, imageUrl, color, ram, rom, productType, features, price } =
-    data;
+  const { id, model, imageUrl, color, ram, rom, type, features, price } = data;
 
   return (
     <div className="bg-white rounded-lg h-[430px] py-4 px-8 flex flex-col">
@@ -30,18 +29,30 @@ const CardForDashboard = ({ data, deleteItem }) => {
               {ram} / {rom}
             </p>
           )}
-          {productType && (
+          {type && (
             <p>
-              <span className="font-semibold">Type:</span> {productType}
+              <span className="font-semibold">Type:</span> {type}
             </p>
           )}
           <p>
             <span className="font-semibold">Price:</span> {price}
           </p>
           <ul className="mt-4 list-disc">
-            <li>{features.feature1}</li>
-            <li>{features.feature2}</li>
-            <li>{features.feature3}</li>
+            <li>
+              {features?.feature1.length > 45
+                ? `${features.feature1.slice(0, 44)}...`
+                : features.feature1}
+            </li>
+            <li>
+              {features?.feature2.length > 45
+                ? `${features.feature2.slice(0, 44)}...`
+                : features.feature2}
+            </li>
+            <li>
+              {features?.feature3.length > 45
+                ? `${features.feature3.slice(0, 44)}...`
+                : features.feature3}
+            </li>
           </ul>
         </div>
       </div>

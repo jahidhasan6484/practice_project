@@ -1,36 +1,6 @@
 {
   "mobiles": [
     {
-      "id": "c6gg40",
-      "model": "Galaxy S24 Ultra Pro",
-      "subtitle": "Galaxy's fastest and best camera",
-      "color": "Titanium Gray",
-      "ram": "12 GB",
-      "rom": "256 GB",
-      "price": "170000",
-      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/sm-s711blg2afa/gallery/bd-galaxy-s23-fe-s711-sm-s711blg2afa-thumb-539828120?$172_172_PNG$",
-      "features": {
-        "feature1": "Industry-leading hardware meets world-changing AI",
-        "feature2": "Made with titanium. Built to last",
-        "feature3": "200MP high-resolution photography & hyper"
-      }
-    },
-    {
-      "id": "cg640",
-      "model": "Galaxy S24 Ultra Pro 2",
-      "subtitle": "Galaxy's fastest and best camera",
-      "color": "Titanium Gray",
-      "ram": "12 GB",
-      "rom": "256 GB",
-      "price": "180000",
-      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/2401/gallery/bd-galaxy-s24-s928-sm-s928bztcbkd-thumb-539412885?$172_172_PNG$",
-      "features": {
-        "feature1": "Industry-leading hardware meets world-changing AI",
-        "feature2": "Made with titanium. Built to last",
-        "feature3": "200MP high-resolution photography & hyper"
-      }
-    },
-    {
       "id": "ca640",
       "model": "Galaxy S24 Ultra",
       "subtitle": "Galaxy's fastest and best camera",
@@ -46,77 +16,136 @@
       }
     },
     {
-      "id": "c6s40",
-      "model": "Galaxy S24 Ultra",
+      "id": "a9df",
+      "model": "Galaxy S23 FE",
       "subtitle": "Galaxy's fastest and best camera",
-      "color": "Titanium Gray",
-      "ram": "12 GB",
+      "color": "Mint",
+      "ram": "8 GB",
       "rom": "256 GB",
-      "price": "170000",
-      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/2401/gallery/bd-galaxy-s24-s928-sm-s928bztcbkd-thumb-539412885?$172_172_PNG$",
+      "price": "61000",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/sm-s711blg2afa/gallery/bd-galaxy-s23-fe-s711-sm-s711blg2afa-thumb-539828111?$172_172_PNG$",
       "features": {
-        "feature1": "Industry-leading hardware meets world-changing AI",
-        "feature2": "Made with titanium. Built to last",
-        "feature3": "200MP high-resolution photography & hyper"
+        "feature1": "Epic moments are now accessible to all.",
+        "feature2": "With its long-lasting power and stunning night shots, the phone becomes your gateway to lasting epic memories.",
+        "feature3": "The new Galaxy S23 FE takes after the iconic design of Galaxy S23 Series, adopting its classic aesthetic and many of the practical features."
+      }
+    },
+    {
+      "id": "dcec",
+      "model": "Galaxy A54 5G",
+      "subtitle": "Super AMOLED display with high resolution",
+      "color": "Awesome Violet",
+      "ram": "6 GB",
+      "rom": "120 GB",
+      "price": "61199",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/sm-a546elvcbkd/gallery/bd-galaxy-a54-5g-sm-a546-sm-a546elvcbkd-thumb-536338548?$172_172_PNG$",
+      "features": {
+        "feature1": "Bright and clear, even in sunlight",
+        "feature2": "Capture your Awesome moments with multi-cameras",
+        "feature3": "With a premium glass finish, clean camera layout and energizing colorways, Galaxy A54 5G wears the Awesome identity on a seamless and graceful frame."
+      }
+    },
+    {
+      "id": "33a3",
+      "model": "Galaxy Z Flip4",
+      "subtitle": "Stand up to the standard",
+      "color": "Bora Purple",
+      "ram": "12 GB",
+      "rom": "512 GB",
+      "price": "170650",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/sm-f721blvebkd/gallery/bd-galaxy-z-flip4-f721-sm-f721blvebkd-thumb-534276110?$172_172_PNG$",
+      "features": {
+        "feature1": "Capture life with new perspective and your best angles with FlexCam",
+        "feature2": "Customizable to your content",
+        "feature3": "Durable inside and out to unfold your world"
+      }
+    },
+    {
+      "id": "0e3d",
+      "model": "Galaxy M12",
+      "subtitle": "Aompelling smartphone that strikes a balance between performance and affordability.",
+      "color": "Titanium Gray",
+      "ram": "4 GB",
+      "rom": "120 GB",
+      "price": "15500",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/sm-m127gzbhbkd/gallery/bd-galaxy-m-sm-m127gzbhbkd-sm-m---gzbgins-thumb-457911048?$172_172_PNG$",
+      "features": {
+        "feature1": "DISPLAY RELOADED 90Hz Refresh Rate",
+        "feature2": "16.55cm (6.5\") Infinity-V Display Display so smooth you would love to keep scrolling all day long",
+        "feature3": "Enhanced zoom and Nightography on M12"
       }
     }
   ],
   "home-appliances": [
     {
-      "id": "c6gg40",
-      "model": "Galaxy S24 Ultra",
-      "subtitle": "Galaxy's fastest and best camera",
-      "color": "Titanium Gray",
-      "price": "170000",
-      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/sm-s711blg2afa/gallery/bd-galaxy-s23-fe-s711-sm-s711blg2afa-thumb-539828120?$172_172_PNG$",
+      "id": "3ad8",
+      "model": "French Door BESPOKE",
+      "subtitle": "Create a beautifully stylish and unique kitchen space with a customizable design. It is available in a choice of 3 patterns: a premium metal, a glossy glass and a matte glass. And you can combine these with various door colors, including Black, White and Navy.",
+      "color": "Gray",
+      "type": "Refrigerator",
       "features": {
-        "feature1": "Industry-leading hardware meets world-changing AI",
-        "feature2": "Made with titanium. Built to last",
-        "feature3": "200MP high-resolution photography & hyper"
+        "feature1": "A stylishly unique design",
+        "feature2": "Enjoy fast and easy access to refreshingly cold and flavored water.",
+        "feature3": "Automatically makes & stores more ice"
       },
-      "productType": "Refrezarator"
+      "price": "120000",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/rf60a91c380-se/gallery/bd-counter-depth-bespoke-customizable-design-449400-rf60a91c380-se-thumb-535085940?$252_252_PNG$"
     },
     {
-      "id": "cg640",
-      "model": "Galaxy S24 Ultra",
-      "subtitle": "Galaxy's fastest and best camera",
-      "color": "Titanium Gray",
-      "price": "180000",
-      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/2401/gallery/bd-galaxy-s24-s928-sm-s928bztcbkd-thumb-539412885?$172_172_PNG$",
+      "id": "5be9",
+      "model": "Top Load Washer SuperClean",
+      "subtitle": "Keep your clothes fresh and clean with this high-efficiency top load washer. It features a spacious drum and advanced cleaning technology to tackle even the toughest stains.",
+      "color": "White",
+      "type": "Washing Machine",
       "features": {
-        "feature1": "Industry-leading hardware meets world-changing AI",
-        "feature2": "Made with titanium. Built to last",
-        "feature3": "200MP high-resolution photography & hyper"
+        "feature1": "High-efficiency cleaning",
+        "feature2": "Spacious drum capacity",
+        "feature3": "Energy-saving technology"
       },
-      "productType": "Refrezarator"
+      "price": "75000",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/wd11t754dbx-se/gallery/bd-combo-wd10t754dbhs3-wd11t754dbx-se-thumb-541803017?$252_252_PNG$"
     },
     {
-      "id": "ca640",
-      "model": "Galaxy S24 Ultra",
-      "subtitle": "Galaxy's fastest and best camera",
-      "color": "Titanium Gray",
-      "price": "170000",
-      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/2401/gallery/bd-galaxy-s24-s928-sm-s928bztcbkd-thumb-539412885?$172_172_PNG$",
+      "id": "6cf1",
+      "model": "UltraQuiet",
+      "subtitle": "Experience an ultra-quiet and powerful clean with this state-of-the-art dishwasher. It offers multiple wash cycles and an energy-efficient design.",
+      "color": "Awesome Black",
+      "type": "Refrigerator",
       "features": {
-        "feature1": "Industry-leading hardware meets world-changing AI",
-        "feature2": "Made with titanium. Built to last",
-        "feature3": "200MP high-resolution photography & hyper"
+        "feature1": "Ultra-quiet operation",
+        "feature2": "Multiple fresh cycles",
+        "feature3": "Energy-efficient design"
       },
-      "productType": "Refrezarator"
+      "price": "85000",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/rt65k7058bs-d2/gallery/bd-670l-twin-cooling-with-5-in-1-convertible-mode-rt65k7058bs-d2-thumb-475124665?$252_252_PNG$"
     },
     {
-      "id": "c6s40",
-      "model": "Galaxy S24 Ultra",
-      "subtitle": "Galaxy's fastest and best camera",
-      "color": "Titanium Gray",
-      "price": "170000",
-      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/2401/gallery/bd-galaxy-s24-s928-sm-s928bztcbkd-thumb-539412885?$172_172_PNG$",
+      "id": "7d02",
+      "model": "Smart Oven Pro",
+      "subtitle": "Cook like a pro with this smart oven that offers precision cooking and a sleek, modern design. It includes WiFi connectivity and a range of smart features.",
+      "color": "Black",
+      "type": "Oven",
       "features": {
-        "feature1": "Industry-leading hardware meets world-changing AI",
-        "feature2": "Made with titanium. Built to last",
-        "feature3": "200MP high-resolution photography & hyper"
+        "feature1": "Precision cooking",
+        "feature2": "WiFi connectivity",
+        "feature3": "Smart features"
       },
-      "productType": "Refrezarator"
+      "price": "95000",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/mw73ad-b-d2/gallery/bd-20l-solo-mwo-with-slim-size__quick-defrost-mw73ad-b-d2-thumb-471344564?$252_252_PNG$"
+    },
+    {
+      "id": "8e34",
+      "model": "Dual Zone",
+      "subtitle": "Keep your air perfectly chilled with this dual zone wine cooler. It features customizable temperature settings and a sleek design.",
+      "color": "Silver",
+      "type": "Air Care",
+      "features": {
+        "feature1": "Dual zone temperature control",
+        "feature2": "Customizable settings",
+        "feature3": "Sleek design"
+      },
+      "price": "67000",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/ax40r3030wm-eu/gallery/bd-ax3300m-air-purifier-with-multi-layered-purificati-ax40r3030wm-eu-thumb-467093675?$252_252_PNG$"
     }
   ]
 }

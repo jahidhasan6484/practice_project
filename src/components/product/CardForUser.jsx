@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 const CardForUser = ({ data }) => {
-  const { model, imageUrl, color, ram, rom, features, price } = data;
+  const { model, imageUrl, color, ram, rom, type, features, price } = data;
   return (
     <div className="bg-white rounded-lg h-[430px] py-4 px-8 flex flex-col">
       <figure className="w-full h-40 overflow-hidden mb-6">
@@ -20,6 +20,12 @@ const CardForUser = ({ data }) => {
           {ram && rom && (
             <p>
               {ram} / {rom}
+            </p>
+          )}
+
+          {type && (
+            <p>
+              <span className="font-semibold">Type:</span> {type}
             </p>
           )}
           <p>

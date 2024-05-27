@@ -166,7 +166,7 @@ const UpdateHomeAppliance = () => {
               type="text"
               placeholder="type"
               name="type"
-              defaultValue={homeApplianceDetails.productType}
+              defaultValue={homeApplianceDetails.type}
               className="input input-bordered"
               required
             />
