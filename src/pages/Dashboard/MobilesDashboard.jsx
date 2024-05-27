@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Card from "../../components/product/Card";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import AddMobileDashboard from "./AddMobileDashboard";
+import CardForDashboard from "../../components/product/CardForDashboard";
 
 const MobilesDashboard = () => {
   const [mobiles, setMobiles] = useState([]);
@@ -41,14 +41,18 @@ const MobilesDashboard = () => {
   };
 
   return (
-    <div className="px-12 bg-gray-100">
+    <div className="min-h-screen pt-4 px-12 bg-gradient-to-b from-gray-50 to-gray-200">
       <Toaster position="top-center" reverseOrder={false} />
       <AddMobileDashboard loadMobiles={loadMobiles} />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-6">
         {mobiles?.map((mobile, index) => {
           return (
-            <Card key={index} data={mobile} deleteItem={handleDeleteMobile} />
+            <CardForDashboard
+              key={index}
+              data={mobile}
+              deleteItem={handleDeleteMobile}
+            />
           );
         })}
       </div>

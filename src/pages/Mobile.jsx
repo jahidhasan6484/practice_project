@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../components/SectionTitle";
-import CardForMobileUser from "../components/product/CardForMobileUser";
+import CardForUser from "../components/product/CardForUser";
 
 const Mobile = () => {
   const [mobiles, setMobiles] = useState([]);
@@ -20,7 +20,7 @@ const Mobile = () => {
       <SectionTitle _text="Mobile" />
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-6 md:p-12 lg:px-48">
         {mobiles.map((mobile, index) => {
-          return <CardForMobileUser key={index} data={mobile} />;
+          return <CardForUser key={index} data={mobile} />;
         })}
       </div>
     </div>

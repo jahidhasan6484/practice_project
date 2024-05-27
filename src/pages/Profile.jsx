@@ -37,11 +37,11 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-evenly md:h-screen items-center gap-y-12 pt-12 md:pt-0 overflow-y-hidden">
-      <div className="text-center">
+    <div className="h-screen flex flex-col gap-y-12 md:flex-row md:justify-evenly items-center p-4 bg-gradient-to-b from-gray-50 to-gray-300">
+      <div className="w-full md:w-1/2 flex justify-center items-center text-center md:text-left">
         {user?.photoURL && !imageError ? (
           <div className="avatar">
-            <div className="w-24 rounded-full">
+            <div className="w-32 rounded-full">
               <img
                 src={user.photoURL}
                 alt="User Avatar"
@@ -51,34 +51,30 @@ const Profile = () => {
           </div>
         ) : (
           <div className="avatar placeholder">
-            <div className="bg-neutral text-neutral-content rounded-full w-24">
+            <div className="bg-neutral text-neutral-content rounded-full w-32">
               <span className="text-3xl uppercase">
                 {user?.email.slice(0, 1)}
               </span>
             </div>
           </div>
         )}
-
-        <p className="tracking-widest pt-4">{user?.displayName}</p>
       </div>
-
-      <div className="flex flex-col gap-y-2">
+      <div className="w-full md:w-1/2 mt-8 md:mt-0 text-center md:text-left -tracking-wider">
+        <p className="text-2xl font-bold mb-8">{user?.displayName}</p>
         <p>
-          <span className="font-semibold tracking-wider">Email:</span>{" "}
+          <span className="font-semibold">Email: </span>
           {user?.email}
         </p>
         <p>
-          <span className="font-semibold tracking-wider">Creation Time:</span>{" "}
+          <span className="font-semibold">Creation time: </span>{" "}
           {convertToBDT(user?.metadata?.creationTime)}
         </p>
         <p>
-          <span className="font-semibold tracking-wider">
-            Last Sign-In Time:
-          </span>{" "}
+          <span className="font-semibold">Last sign-in time: </span>{" "}
           {convertToBDT(user?.metadata?.lastSignInTime)}
         </p>
         <p>
-          <span className="font-semibold tracking-wider">Phone Number:</span>{" "}
+          <span className="font-semibold">Phone number: </span>{" "}
           {user?.phoneNumber || "Not provided"}
         </p>
       </div>

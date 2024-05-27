@@ -1,8 +1,8 @@
 import toast, { Toaster } from "react-hot-toast";
-import Card from "../../components/product/Card";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import AddHomeAppliancesDashboard from "./AddHomeAppliancesDashboard";
+import CardForDashboard from "../../components/product/CardForDashboard";
 
 const HomeAppliancesDashboard = () => {
   const [homeAppliances, setHomeAppliances] = useState([]);
@@ -40,13 +40,13 @@ const HomeAppliancesDashboard = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen pt-4 px-12 bg-gradient-to-b from-gray-50 to-gray-200">
       <Toaster position="top-center" reverseOrder={false} />
       <AddHomeAppliancesDashboard loadHomeAppliances={loadHomeAppliances} />
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-6">
         {homeAppliances?.map((ha, index) => {
           return (
-            <Card
+            <CardForDashboard
               key={index}
               data={ha}
               deleteItem={handleDeleteHomeAppliance}

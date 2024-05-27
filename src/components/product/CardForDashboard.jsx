@@ -6,8 +6,9 @@ import { MdModeEdit } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 // eslint-disable-next-line react/prop-types
-const Card = ({ data, deleteItem }) => {
-  const { id, model, imageUrl, color, ram, rom, features } = data;
+const CardForDashboard = ({ data, deleteItem }) => {
+  const { id, model, imageUrl, color, ram, rom, productType, features, price } =
+    data;
 
   return (
     <div className="bg-white rounded-lg h-[430px] py-4 px-8 flex flex-col">
@@ -24,8 +25,18 @@ const Card = ({ data, deleteItem }) => {
           <p>
             <span className="font-semibold">Color:</span> {color}
           </p>
+          {ram && rom && (
+            <p>
+              {ram} / {rom}
+            </p>
+          )}
+          {productType && (
+            <p>
+              <span className="font-semibold">Type:</span> {productType}
+            </p>
+          )}
           <p>
-            {ram} / {rom}
+            <span className="font-semibold">Price:</span> {price}
           </p>
           <ul className="mt-4 list-disc">
             <li>{features.feature1}</li>
@@ -53,4 +64,4 @@ const Card = ({ data, deleteItem }) => {
   );
 };
 
-export default Card;
+export default CardForDashboard;

@@ -2,7 +2,7 @@
   "mobiles": [
     {
       "id": "c6gg40",
-      "model": "Galaxy S24 Ultra",
+      "model": "Galaxy S24 Ultra Pro",
       "subtitle": "Galaxy's fastest and best camera",
       "color": "Titanium Gray",
       "ram": "12 GB",
@@ -17,12 +17,12 @@
     },
     {
       "id": "cg640",
-      "model": "Galaxy S24 Ultra",
+      "model": "Galaxy S24 Ultra Pro 2",
       "subtitle": "Galaxy's fastest and best camera",
       "color": "Titanium Gray",
       "ram": "12 GB",
       "rom": "256 GB",
-      "price": "170000",
+      "price": "180000",
       "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/2401/gallery/bd-galaxy-s24-s928-sm-s928bztcbkd-thumb-539412885?$172_172_PNG$",
       "features": {
         "feature1": "Industry-leading hardware meets world-changing AI",
@@ -59,48 +59,64 @@
         "feature2": "Made with titanium. Built to last",
         "feature3": "200MP high-resolution photography & hyper"
       }
-    },
+    }
+  ],
+  "home-appliances": [
     {
-      "id": "c640a",
+      "id": "c6gg40",
       "model": "Galaxy S24 Ultra",
       "subtitle": "Galaxy's fastest and best camera",
       "color": "Titanium Gray",
-      "ram": "12 GB",
-      "rom": "256 GB",
+      "price": "170000",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/sm-s711blg2afa/gallery/bd-galaxy-s23-fe-s711-sm-s711blg2afa-thumb-539828120?$172_172_PNG$",
+      "features": {
+        "feature1": "Industry-leading hardware meets world-changing AI",
+        "feature2": "Made with titanium. Built to last",
+        "feature3": "200MP high-resolution photography & hyper"
+      },
+      "productType": "Refrezarator"
+    },
+    {
+      "id": "cg640",
+      "model": "Galaxy S24 Ultra",
+      "subtitle": "Galaxy's fastest and best camera",
+      "color": "Titanium Gray",
+      "price": "180000",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/2401/gallery/bd-galaxy-s24-s928-sm-s928bztcbkd-thumb-539412885?$172_172_PNG$",
+      "features": {
+        "feature1": "Industry-leading hardware meets world-changing AI",
+        "feature2": "Made with titanium. Built to last",
+        "feature3": "200MP high-resolution photography & hyper"
+      },
+      "productType": "Refrezarator"
+    },
+    {
+      "id": "ca640",
+      "model": "Galaxy S24 Ultra",
+      "subtitle": "Galaxy's fastest and best camera",
+      "color": "Titanium Gray",
       "price": "170000",
       "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/2401/gallery/bd-galaxy-s24-s928-sm-s928bztcbkd-thumb-539412885?$172_172_PNG$",
       "features": {
         "feature1": "Industry-leading hardware meets world-changing AI",
         "feature2": "Made with titanium. Built to last",
         "feature3": "200MP high-resolution photography & hyper"
-      }
-    }
-  ],
-  "home-appliances": [
-    {
-      "id": "21",
-      "model": "F1ront Loading Washing machine- 13 KG WW13BB944DGBFQ",
-      "imageURL": "https://images.samsung.com/is/image/samsung/p6pim/bd/ww13bb944dgbfq/gallery/bd-ww9400b-ww13bb944dgbfq-541802465?$2052_1641_PNG$",
-      "price": "300",
-      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/ww13bb944dgbfq/gallery/bd-ww9400b-ww13bb944dgbfq-541802465?$2052_1641_PNG$"
+      },
+      "productType": "Refrezarator"
     },
     {
-      "id": "21",
-      "model": "Front Loading Washing machine- 13 KG WW13BB944DGBFQ",
-      "imageURL": "https://images.samsung.com/is/image/samsung/p6pim/bd/ww13bb944dgbfq/gallery/bd-ww9400b-ww13bb944dgbfq-541802465?$2052_1641_PNG$",
-      "price": 301
-    },
-    {
-      "id": "21",
-      "model": "Front Loading Washing machine- 13 KG WW13BB944DGBFQ",
-      "imageURL": "https://images.samsung.com/is/image/samsung/p6pim/bd/ww13bb944dgbfq/gallery/bd-ww9400b-ww13bb944dgbfq-541802465?$2052_1641_PNG$",
-      "price": 301
-    },
-    {
-      "id": "21",
-      "model": "Front Loading Washing machine- 13 KG WW13BB944DGBFQ",
-      "imageURL": "https://images.samsung.com/is/image/samsung/p6pim/bd/ww13bb944dgbfq/gallery/bd-ww9400b-ww13bb944dgbfq-541802465?$2052_1641_PNG$",
-      "price": 301
+      "id": "c6s40",
+      "model": "Galaxy S24 Ultra",
+      "subtitle": "Galaxy's fastest and best camera",
+      "color": "Titanium Gray",
+      "price": "170000",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/bd/2401/gallery/bd-galaxy-s24-s928-sm-s928bztcbkd-thumb-539412885?$172_172_PNG$",
+      "features": {
+        "feature1": "Industry-leading hardware meets world-changing AI",
+        "feature2": "Made with titanium. Built to last",
+        "feature3": "200MP high-resolution photography & hyper"
+      },
+      "productType": "Refrezarator"
     }
   ]
 }

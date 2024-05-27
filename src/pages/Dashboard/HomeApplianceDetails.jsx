@@ -12,16 +12,34 @@ const HomeApplianceDetails = () => {
   }, [id]);
 
   return (
-    <div className="flex">
-      <div>
+    <div className="h-screen flex flex-col md:flex-row justify-evenly items-center p-4 bg-gradient-to-b from-gray-50 to-gray-300">
+      <div className="w-full md:w-1/2 flex justify-center items-center">
         <img
-          src={homeApplianceDetails.imageURL}
+          src={homeApplianceDetails.imageUrl}
           alt={homeApplianceDetails.model}
+          className="max-w-full h-auto object-cover"
         />
       </div>
-      <div>
-        <p>Model: {homeApplianceDetails.model} BDT</p>
-        <p>Price: {homeApplianceDetails.price} BDT</p>
+      <div className="w-full md:w-1/2 mt-8 md:mt-0 -tracking-wider">
+        <p className="text-2xl font-bold">{homeApplianceDetails.model}</p>
+        <p className="mb-8">{homeApplianceDetails.subtitle}</p>
+        <p>
+          <span className="font-semibold">Type: </span>
+          {homeApplianceDetails.productType}
+        </p>
+        <p>
+          <span className="font-semibold">Color: </span>{" "}
+          {homeApplianceDetails.color}
+        </p>
+        <p>
+          <span className="font-semibold">Price: </span>{" "}
+          {homeApplianceDetails.price}
+        </p>
+        <ul className="mt-4 list-disc pl-5">
+          <li>{homeApplianceDetails.features?.feature1}</li>
+          <li>{homeApplianceDetails.features?.feature2}</li>
+          <li>{homeApplianceDetails.features?.feature3}</li>
+        </ul>
       </div>
     </div>
   );

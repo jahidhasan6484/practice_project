@@ -24,7 +24,7 @@ const DashboardLayout = () => {
       <div className="drawer-content flex flex-col">
         <label
           htmlFor="my-drawer-2"
-          className="drawer-button lg:hidden bg-gray-100 pl-4 pt-4 uppercase text-sm font-bold -tracking-widest"
+          className="drawer-button lg:hidden bg-gray-100 pl-4 py-4 uppercase text-sm font-bold -tracking-widest"
         >
           menu
         </label>

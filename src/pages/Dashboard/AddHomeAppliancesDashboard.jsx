@@ -9,19 +9,35 @@ import { Link } from "react-router-dom";
 const AddHomeAppliancesDashboard = ({ loadHomeAppliances }) => {
   const [loadingAPI, setLoadingAPI] = useState(false);
 
-  const handleAddNewMobile = async (e) => {
+  const handleAddNewHomeAppliance = async (e) => {
     e.preventDefault();
 
     // Extract form data
     const form = e.target;
     const model = form.model.value.trim();
+    const subtitle = form.subtitle.value.trim();
+    const color = form.color.value.trim();
+    const type = form.type.value.trim();
+    const feature1 = form.feature1.value.trim();
+    const feature2 = form.feature2.value.trim();
+    const feature3 = form.feature3.value.trim();
     const price = form.price.value.trim();
     const imageUrl = form["image link url"].value.trim();
 
     // Validation
     const urlRegex = /^(https?:\/\/(?:www\.)?[^\s/$.?#].[^\s]*)$/i;
 
-    if (!model || !price || !imageUrl) {
+    if (
+      !model ||
+      !price ||
+      !imageUrl ||
+      !subtitle ||
+      !color ||
+      !type ||
+      !feature1 ||
+      !feature2 ||
+      !feature3
+    ) {
       toast.error("All fields are required!");
       return;
     }
@@ -38,13 +54,17 @@ const AddHomeAppliancesDashboard = ({ loadHomeAppliances }) => {
 
     const data = {
       model,
+      subtitle,
+      color,
+      type,
+      features: { feature1, feature2, feature3 },
       price,
       imageUrl,
     };
 
     // Confirm with the user before proceeding
     const isConfirmed = window.confirm(
-      "Are you sure you want to add this new mobile?"
+      "Are you sure you want to add this new home appliance?"
     );
 
     if (!isConfirmed) {
@@ -92,14 +112,14 @@ const AddHomeAppliancesDashboard = ({ loadHomeAppliances }) => {
             <Logo />
           </Link>
 
-          <form onSubmit={handleAddNewMobile} className="card-body">
+          <form onSubmit={handleAddNewHomeAppliance} className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">model name (home appliance)</span>
+                <span className="label-text">Model Name (home appliance)</span>
               </label>
               <input
                 type="text"
-                placeholder="model"
+                placeholder="Model"
                 name="model"
                 className="input input-bordered"
                 required
@@ -107,24 +127,95 @@ const AddHomeAppliancesDashboard = ({ loadHomeAppliances }) => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">price (bdt)</span>
+                <span className="label-text">Subtitle</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Subtitle"
+                name="subtitle"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Color</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Color"
+                name="color"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Prouct type</span>
+              </label>
+              <input
+                type="text"
+                placeholder="type"
+                name="type"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Feature 1</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Feature 1"
+                name="feature1"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Feature 2</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Feature 2"
+                name="feature2"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Feature 3</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Feature 3"
+                name="feature3"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Price (BDT)</span>
               </label>
               <input
                 type="number"
-                placeholder="price"
+                placeholder="Price"
                 name="price"
                 className="input input-bordered"
                 required
               />
             </div>
-
             <div className="form-control">
               <label className="label">
-                <span className="label-text">image (link only)</span>
+                <span className="label-text">Image (Link Only)</span>
               </label>
               <input
                 type="text"
-                placeholder="imageURL"
+                placeholder="Image URL"
                 name="image link url"
                 className="input input-bordered"
                 required

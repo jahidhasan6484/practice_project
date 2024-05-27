@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Logo from "../../components/shared/Logo";
 import axios from "axios";
 
 const UpdateHomeAppliance = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const [homeApplianceDetails, setHomeApplianceDetails] = useState({});
   const [loadingAPI, setLoadingAPI] = useState(false);
 
@@ -23,13 +25,29 @@ const UpdateHomeAppliance = () => {
     // Extract form data
     const form = e.target;
     const model = form.model.value.trim();
+    const subtitle = form.subtitle.value.trim();
+    const color = form.color.value.trim();
+    const type = form.type.value.trim();
+    const feature1 = form.feature1.value.trim();
+    const feature2 = form.feature2.value.trim();
+    const feature3 = form.feature3.value.trim();
     const price = form.price.value.trim();
     const imageUrl = form["image link url"].value.trim();
 
     // Validation
     const urlRegex = /^(https?:\/\/(?:www\.)?[^\s/$.?#].[^\s]*)$/i;
 
-    if (!model || !price || !imageUrl) {
+    if (
+      !model ||
+      !price ||
+      !imageUrl ||
+      !subtitle ||
+      !color ||
+      !type ||
+      !feature1 ||
+      !feature2 ||
+      !feature3
+    ) {
       toast.error("All fields are required!");
       return;
     }
@@ -46,6 +64,10 @@ const UpdateHomeAppliance = () => {
 
     const data = {
       model,
+      subtitle,
+      color,
+      type,
+      features: { feature1, feature2, feature3 },
       price,
       imageUrl,
     };
@@ -76,12 +98,19 @@ const UpdateHomeAppliance = () => {
     }
   };
 
+  const goBack = () => {
+    navigate("/dashboard/home-appliances");
+  };
+
   return (
     <dialog id="update_home_appliance" className="modal">
       <Toaster position="top-center" reverseOrder={false} />
       <div className="modal-box">
         <form method="dialog">
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+          <button
+            onClick={goBack}
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          >
             ✕
           </button>
         </form>
@@ -92,40 +121,117 @@ const UpdateHomeAppliance = () => {
         <form onSubmit={handleUpdateHomeAppliance} className="card-body">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">model name (home appliance)</span>
+              <span className="label-text">Model Name (home appliance)</span>
             </label>
             <input
               type="text"
-              placeholder="model"
+              placeholder="Model"
               name="model"
-              defaultValue={homeApplianceDetails?.model}
+              defaultValue={homeApplianceDetails.model}
               className="input input-bordered"
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">price (bdt)</span>
+              <span className="label-text">Subtitle</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Subtitle"
+              name="subtitle"
+              defaultValue={homeApplianceDetails.subtitle}
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Color</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Color"
+              name="color"
+              defaultValue={homeApplianceDetails.color}
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Prouct type</span>
+            </label>
+            <input
+              type="text"
+              placeholder="type"
+              name="type"
+              defaultValue={homeApplianceDetails.productType}
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Feature 1</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Feature 1"
+              name="feature1"
+              defaultValue={homeApplianceDetails?.features?.feature1}
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Feature 2</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Feature 2"
+              name="feature2"
+              defaultValue={homeApplianceDetails?.features?.feature2}
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Feature 3</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Feature 3"
+              name="feature3"
+              defaultValue={homeApplianceDetails?.features?.feature3}
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Price (BDT)</span>
             </label>
             <input
               type="number"
-              placeholder="price"
+              placeholder="Price"
               name="price"
-              defaultValue={homeApplianceDetails?.price}
+              defaultValue={homeApplianceDetails.price}
               className="input input-bordered"
               required
             />
           </div>
-
           <div className="form-control">
             <label className="label">
-              <span className="label-text">image (link only)</span>
+              <span className="label-text">Image (Link Only)</span>
             </label>
             <input
               type="text"
-              placeholder="imageURL"
+              placeholder="Image URL"
               name="image link url"
-              defaultValue={homeApplianceDetails?.imageURL}
+              defaultValue={homeApplianceDetails.imageUrl}
               className="input input-bordered"
               required
             />

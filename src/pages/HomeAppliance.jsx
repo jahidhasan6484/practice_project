@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../components/SectionTitle";
+import CardForUser from "../components/product/CardForUser";
 
 const HomeAppliance = () => {
   const [homeAppliance, setHomeAppliance] = useState([]);
@@ -10,12 +11,12 @@ const HomeAppliance = () => {
       .then((data) => setHomeAppliance(data));
   });
   return (
-    <div className="min-h-screen">
-      <SectionTitle _text="Home Appliance" />
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 p-6 md:p-12 lg:p-16">
-        {/* {homeAppliance?.map((ha, index) => {
+    <div className="min-h-screen bg-gradient-to-b from-gray-300 to-gray-50">
+      <SectionTitle _text="Home Appliances" />
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-6 md:p-12 lg:px-48">
+        {homeAppliance.map((ha, index) => {
           return <CardForUser key={index} data={ha} />;
-        })} */}
+        })}
       </div>
     </div>
   );

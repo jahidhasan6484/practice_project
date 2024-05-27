@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Logo from "../../components/shared/Logo";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
 const UpdateMobile = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const [mobileDetails, setMobileDetails] = useState({});
   const [loadingAPI, setLoadingAPI] = useState(false);
 
@@ -23,6 +25,13 @@ const UpdateMobile = () => {
     // Extract form data
     const form = e.target;
     const model = form.model.value.trim();
+    const subtitle = form.subtitle.value.trim();
+    const color = form.color.value.trim();
+    const ram = form.ram.value.trim();
+    const rom = form.rom.value.trim();
+    const feature1 = form.feature1.value.trim();
+    const feature2 = form.feature2.value.trim();
+    const feature3 = form.feature3.value.trim();
     const price = form.price.value.trim();
     const imageUrl = form["image link url"].value.trim();
 
@@ -46,6 +55,11 @@ const UpdateMobile = () => {
 
     const data = {
       model,
+      subtitle,
+      color,
+      ram,
+      rom,
+      features: { feature1, feature2, feature3 },
       price,
       imageUrl,
     };
@@ -75,12 +89,20 @@ const UpdateMobile = () => {
       setLoadingAPI(false);
     }
   };
+
+  const goBack = () => {
+    navigate("/dashboard/mobiles");
+  };
+
   return (
     <dialog id="update_mobile" className="modal">
       <Toaster position="top-center" reverseOrder={false} />
       <div className="modal-box">
         <form method="dialog">
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+          <button
+            onClick={goBack}
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          >
             ✕
           </button>
         </form>
@@ -91,40 +113,130 @@ const UpdateMobile = () => {
         <form onSubmit={handleUpdateMobile} className="card-body">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">model name (mobile)</span>
+              <span className="label-text">Model Name (Mobile)</span>
             </label>
             <input
+              defaultValue={mobileDetails.model}
               type="text"
-              placeholder="model"
+              placeholder="Model"
               name="model"
-              defaultValue={mobileDetails?.model}
               className="input input-bordered"
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">price (bdt)</span>
+              <span className="label-text">Subtitle</span>
             </label>
             <input
-              type="number"
-              placeholder="price"
-              name="price"
-              defaultValue={mobileDetails?.price}
-              className="input input-bordered"
-              required
-            />
-          </div>
-
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">image (link only)</span>
-            </label>
-            <input
+              defaultValue={mobileDetails.subtitle}
               type="text"
-              placeholder="imageURL"
+              placeholder="Subtitle"
+              name="subtitle"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Color</span>
+            </label>
+            <input
+              defaultValue={mobileDetails.color}
+              type="text"
+              placeholder="Color"
+              name="color"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">RAM</span>
+            </label>
+            <input
+              defaultValue={mobileDetails.ram}
+              type="text"
+              placeholder="RAM"
+              name="ram"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">ROM</span>
+            </label>
+            <input
+              defaultValue={mobileDetails.rom}
+              type="text"
+              placeholder="ROM"
+              name="rom"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Feature 1</span>
+            </label>
+            <input
+              defaultValue={mobileDetails.features?.feature1}
+              type="text"
+              placeholder="Feature 1"
+              name="feature1"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Feature 2</span>
+            </label>
+            <input
+              defaultValue={mobileDetails.features?.feature2}
+              type="text"
+              placeholder="Feature 2"
+              name="feature2"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Feature 3</span>
+            </label>
+            <input
+              defaultValue={mobileDetails.features?.feature3}
+              type="text"
+              placeholder="Feature 3"
+              name="feature3"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Price (BDT)</span>
+            </label>
+            <input
+              defaultValue={mobileDetails.price}
+              type="number"
+              placeholder="Price"
+              name="price"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Image (Link Only)</span>
+            </label>
+            <input
+              defaultValue={mobileDetails.imageUrl}
+              type="text"
+              placeholder="Image URL"
               name="image link url"
-              defaultValue={mobileDetails?.imageURL}
               className="input input-bordered"
               required
             />
