@@ -6,9 +6,16 @@ import About from "../pages/About";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import DashboardLayout from "../layouts/DashboardLayout";
-import HomeAppliances from "../pages/Dashboard/HomeAppliances";
-import Mobiles from "../pages/Dashboard/Mobiles";
-// import PrivateRoute from "./PrivateRoute";
+import Mobile from "../pages/Mobile";
+import MobilesDashboard from "../pages/Dashboard/MobilesDashboard";
+import HomeAppliancesDashboard from "../pages/Dashboard/HomeAppliancesDashboard";
+import HomeAppliance from "../pages/HomeAppliance";
+import MobileProductDetails from "../pages/Dashboard/MobileProductDetails";
+import HomeApplianceDetails from "../pages/Dashboard/HomeApplianceDetails";
+import UpdateMobile from "../pages/Dashboard/UpdateMobile";
+import UpdateHomeAppliance from "../pages/Dashboard/UpdateHomeAppliance";
+import Profile from "../pages/Profile";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +31,14 @@ export const router = createBrowserRouter([
         path: "about",
         element: <About />,
       },
+      {
+        path: "mobile",
+        element: <Mobile />,
+      },
+      {
+        path: "home-appliance",
+        element: <HomeAppliance />,
+      },
     ],
   },
   {
@@ -36,56 +51,45 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     errorElement: <Error />,
     children: [
       {
         index: true,
-        element: <Navigate to="mobiles" />,
+        element: <Navigate to="me" />,
+      },
+      {
+        path: "me",
+        element: <Profile />,
       },
       {
         path: "mobiles",
-        element: (
-          // <PrivateRoute>
-          <Mobiles />
-          // </PrivateRoute>
-        ),
+        element: <MobilesDashboard />,
       },
       {
         path: "home-appliances",
-        element: (
-          // <PrivateRoute>
-          <HomeAppliances />
-          // </PrivateRoute>
-        ),
+        element: <HomeAppliancesDashboard />,
+      },
+      {
+        path: "mobiles/details/:id",
+        element: <MobileProductDetails />,
+      },
+      {
+        path: "home-appliances/details/:id",
+        element: <HomeApplianceDetails />,
+      },
+      {
+        path: "mobiles/update/:id",
+        element: <UpdateMobile />,
+      },
+      {
+        path: "home-appliances/update/:id",
+        element: <UpdateHomeAppliance />,
       },
     ],
   },
-  // {
-  //   path: "profile",
-  //   element: <ProfileLayout />,
-  //   errorElement: <ErrorPage />,
-  //   children: [
-  //     {
-  //       index: true,
-  //       element: <Navigate to="me" />,
-  //     },
-  //     {
-  //       path: "me",
-  //       element: (
-  //         <PrivateRoute>
-  //           <Profile />
-  //         </PrivateRoute>
-  //       ),
-  //     },
-  //     {
-  //       path: "purchase-history",
-  //       element: (
-  //         <PrivateRoute>
-  //           <PurchaseHistory />
-  //         </PrivateRoute>
-  //       ),
-  //     },
-  //   ],
-  // },
 ]);

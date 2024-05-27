@@ -1,36 +1,40 @@
 import { Link } from "react-router-dom";
 import Logo from "../components/shared/Logo";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
+import { auth } from "../firebase/firebase.config";
+import toast, { Toaster } from "react-hot-toast";
+import Loading from "../components/shared/Loading";
 
 const Navbar = () => {
+  const [user, loading] = useAuthState(auth);
+  const [signOut] = useSignOut(auth);
+
+  console.log("USER IN NAV", user);
+  if (loading) {
+    return <Loading />;
+  }
+
   const navList = [
-    {
-      name: "AI",
-      route: "/ai",
-    },
     {
       name: "Mobile",
       route: "/mobile",
     },
     {
       name: "Home Appliances",
-      route: "/home-appliances",
-    },
-    {
-      name: "Computing",
-      route: "/computing",
+      route: "/home-appliance",
     },
   ];
 
-  // const [user] = useAuthState(auth);
+  const handleLogOut = async () => {
+    const success = await signOut();
 
-  // console.log("user", user);
-  // const [signOut] = useSignOut(auth);
-
-  // const handleLogout = async () => {
-  //   await signOut();
-  // };
+    if (success) {
+      toast.success("You are sign out");
+    }
+  };
   return (
     <div className="navbar bg-base-100">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,9 +64,16 @@ const Navbar = () => {
                 </li>
               );
             })}
+            {user?.email && (
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+            )}
           </ul>
         </div>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -73,10 +84,27 @@ const Navbar = () => {
               </li>
             );
           })}
+
+          {user?.email && (
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login">Login</Link>
+        {user?.email ? (
+          <button
+            onClick={handleLogOut}
+            className="btn btn-error btn-sm text-white"
+          >
+            Logout
+          </button>
+        ) : (
+          <Link to="/login" className="btn btn-ghost btn-sm">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

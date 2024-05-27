@@ -1,27 +1,29 @@
 /* eslint-disable no-unused-vars */
+
+import { Link, useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import GoogleLogin from "../auth/GoogleLogin";
 import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase.config";
-import { Link, useNavigate } from "react-router-dom";
-import GoogleLogin from "../components/Auth/GoogleLogin";
 import { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
 
-export default function Register() {
-  const [user, loading] = useAuthState(auth);
+const Register = () => {
   const navigate = useNavigate();
-  const [createUserWithEmailAndPassword, createUserError] =
+  const userInfo = useAuthState(auth);
+
+  const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  const handleSubmit = async (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!regex.test(email)) {
       toast.error("Invalid email");
@@ -33,21 +35,22 @@ export default function Register() {
       return;
     }
 
-    try {
-      await createUserWithEmailAndPassword(email, password);
-      toast.success("Registration successful");
-    } catch (error) {
-      toast.error(error.message);
-    }
+    createUserWithEmailAndPassword(email, password);
   };
 
-  let from = location.state?.from?.pathname || "/";
+  if (user) {
+    toast.success("Successfully creating a new account");
+  }
+
+  if (error) {
+    toast.error(error?.message);
+  }
 
   useEffect(() => {
-    if (user) {
-      navigate(from, { replace: true });
+    if (userInfo[0]) {
+      navigate("/");
     }
-  }, [user, loading, navigate, from]);
+  }, [navigate, userInfo]);
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -63,7 +66,7 @@ export default function Register() {
         </div>
         <div className="flex justify-end">
           <div className="card shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit} className="card-body">
+            <form onSubmit={handleSignUp} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -88,11 +91,13 @@ export default function Register() {
                   required
                 />
               </div>
+
               <div className="form-control mt-6">
                 <input
                   type="submit"
-                  value="Register"
+                  value={`${loading ? "Creating account" : "Register"}`}
                   className="btn btn-primary"
+                  disabled={loading}
                 />
               </div>
 
@@ -113,4 +118,6 @@ export default function Register() {
       </div>
     </div>
   );
-}
+};
+
+export default Register;

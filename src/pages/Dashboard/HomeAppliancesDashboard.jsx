@@ -2,9 +2,9 @@ import toast, { Toaster } from "react-hot-toast";
 import Card from "../../components/product/Card";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import AddHomeAppliances from "./AddHomeAppliances";
+import AddHomeAppliancesDashboard from "./AddHomeAppliancesDashboard";
 
-const HomeAppliances = () => {
+const HomeAppliancesDashboard = () => {
   const [homeAppliances, setHomeAppliances] = useState([]);
 
   const loadHomeAppliances = () => {
@@ -18,21 +18,31 @@ const HomeAppliances = () => {
   }, []);
 
   const handleDeleteHomeAppliance = async (_id) => {
-    await axios
-      .delete(`http://localhost:3000/home-appliances/${_id}`)
-      .then((data) => {
-        if (data?.data) {
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete this home appliance?"
+    );
+
+    if (isConfirmed) {
+      try {
+        const response = await axios.delete(
+          `http://localhost:3000/home-appliances/${_id}`
+        );
+        if (response?.data) {
           loadHomeAppliances();
           toast.success("Home appliance deleted successfully");
         }
-      })
-      .catch(() => toast.error("Error deleting item"));
+      } catch (error) {
+        toast.error("Error deleting item");
+      }
+    } else {
+      toast.info("Deletion cancelled");
+    }
   };
 
   return (
     <div>
       <Toaster position="top-center" reverseOrder={false} />
-      <AddHomeAppliances loadHomeAppliances={loadHomeAppliances} />
+      <AddHomeAppliancesDashboard loadHomeAppliances={loadHomeAppliances} />
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {homeAppliances?.map((ha, index) => {
           return (
@@ -48,4 +58,4 @@ const HomeAppliances = () => {
   );
 };
 
-export default HomeAppliances;
+export default HomeAppliancesDashboard;

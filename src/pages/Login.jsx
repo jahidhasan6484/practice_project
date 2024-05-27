@@ -1,25 +1,26 @@
+import { Link, useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import GoogleLogin from "../auth/GoogleLogin";
 import {
   useAuthState,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase.config";
-import { Link, useNavigate } from "react-router-dom";
-import GoogleLogin from "../components/Auth/GoogleLogin";
 import { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
 
-export default function Login() {
-  const [user, loading] = useAuthState(auth);
+const Login = () => {
   const navigate = useNavigate();
-  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+  const userInfo = useAuthState(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
 
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!regex.test(email)) {
       toast.error("Invalid email");
@@ -31,22 +32,22 @@ export default function Login() {
       return;
     }
 
-    try {
-      await signInWithEmailAndPassword(email, password);
-      toast.success("Login successful");
-    } catch (error) {
-      toast.error(error.message);
-    }
+    signInWithEmailAndPassword(email, password);
   };
 
-  let from = location.state?.from?.pathname || "/";
+  if (user) {
+    toast.success("Successfully logged in");
+  }
+
+  if (error) {
+    toast.error(error?.message);
+  }
 
   useEffect(() => {
-    if (user) {
-      navigate(from, { replace: true });
+    if (userInfo[0]) {
+      navigate("/");
     }
-  }, [user, loading, navigate, from]);
-
+  }, [navigate, userInfo]);
   return (
     <div className="hero min-h-screen bg-base-200">
       <Toaster position="top-center" reverseOrder={false} />
@@ -85,8 +86,14 @@ export default function Login() {
                   required
                 />
               </div>
+
               <div className="form-control mt-6">
-                <input type="submit" value="Login" className="btn btn-accent" />
+                <input
+                  type="submit"
+                  value="Login"
+                  className="btn btn-accent"
+                  disabled={loading}
+                />
               </div>
 
               <p className="text-center">
@@ -106,4 +113,6 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};
+
+export default Login;

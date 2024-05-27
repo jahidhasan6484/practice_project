@@ -3,10 +3,12 @@ import axios from "axios";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Logo from "../../components/shared/Logo";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const AddHomeAppliances = ({ loadHomeAppliances }) => {
+const AddHomeAppliancesDashboard = ({ loadHomeAppliances }) => {
   const [loadingAPI, setLoadingAPI] = useState(false);
+
   const handleAddNewMobile = async (e) => {
     e.preventDefault();
 
@@ -14,25 +16,18 @@ const AddHomeAppliances = ({ loadHomeAppliances }) => {
     const form = e.target;
     const model = form.model.value.trim();
     const price = form.price.value.trim();
-    const subTitle = form["sub title"].value.trim();
-    const releaseYear = form["release year"].value.trim();
     const imageUrl = form["image link url"].value.trim();
 
     // Validation
     const urlRegex = /^(https?:\/\/(?:www\.)?[^\s/$.?#].[^\s]*)$/i;
 
-    if (!model || !price || !subTitle || !releaseYear || !imageUrl) {
+    if (!model || !price || !imageUrl) {
       toast.error("All fields are required!");
       return;
     }
 
     if (isNaN(price)) {
       toast.error("Price must be a number!");
-      return;
-    }
-
-    if (!Number.isInteger(Number(releaseYear)) || releaseYear.length !== 4) {
-      toast.error("Release year must be a valid 4-digit year!");
       return;
     }
 
@@ -44,10 +39,18 @@ const AddHomeAppliances = ({ loadHomeAppliances }) => {
     const data = {
       model,
       price,
-      subTitle,
-      releaseYear,
       imageUrl,
     };
+
+    // Confirm with the user before proceeding
+    const isConfirmed = window.confirm(
+      "Are you sure you want to add this new mobile?"
+    );
+
+    if (!isConfirmed) {
+      toast.info("Addition cancelled");
+      return;
+    }
 
     try {
       setLoadingAPI(true);
@@ -66,6 +69,7 @@ const AddHomeAppliances = ({ loadHomeAppliances }) => {
       setLoadingAPI(false);
     }
   };
+
   return (
     <div>
       <Toaster position="top-center" reverseOrder={false} />
@@ -84,7 +88,9 @@ const AddHomeAppliances = ({ loadHomeAppliances }) => {
               ✕
             </button>
           </form>
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
 
           <form onSubmit={handleAddNewMobile} className="card-body">
             <div className="form-control">
@@ -111,30 +117,7 @@ const AddHomeAppliances = ({ loadHomeAppliances }) => {
                 required
               />
             </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">sub title</span>
-              </label>
-              <input
-                type="text"
-                placeholder="sub-title"
-                name="sub title"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">release year</span>
-              </label>
-              <input
-                type="number"
-                placeholder="release-year"
-                name="release year"
-                className="input input-bordered"
-                required
-              />
-            </div>
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text">image (link only)</span>
@@ -162,4 +145,4 @@ const AddHomeAppliances = ({ loadHomeAppliances }) => {
   );
 };
 
-export default AddHomeAppliances;
+export default AddHomeAppliancesDashboard;
