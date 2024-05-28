@@ -9,7 +9,6 @@ const Navbar = () => {
   const [user, loading] = useAuthState(auth);
   const [signOut] = useSignOut(auth);
 
-  console.log("USER IN NAV", user);
   if (loading) {
     return <Loading />;
   }
